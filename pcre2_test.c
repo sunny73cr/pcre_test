@@ -55,7 +55,7 @@ s32 main (s32 argc, cstrarr argv) {
     error = pcre2_regcomp(&expr, (const cstr)expression, 0);
     if (error) {
         errlen = pcre2_regerror(error, (const regex*)exprp, errbuf, errbuflen);
-        if (errlen > errbuflen) {
+        if (errlen > errbuflen) { //truncated by the library but don't report partial errors, so
             fprintf(stderr, "\033[31mpcre2_test\033[39m: ERROR EXCEEDS BUFFER SIZE.\n");
             failure;
         }
@@ -68,7 +68,7 @@ s32 main (s32 argc, cstrarr argv) {
     error = pcre2_regexec((const regex*)exprp, (const cstr)src1, (size_t)1, &matches, 0);
     if (error) {
         errlen = pcre2_regerror(error, (const regex*)exprp, errbuf, errbuflen);
-        if (errlen > errbuflen) {
+        if (errlen > errbuflen) { //truncated by the library but don't report partial errors, so
             fprintf(stderr, "\033[31mpcre2_test\033[39m: ERROR EXCEEDS BUFFER SIZE.\n");
             failure;
         }
@@ -87,7 +87,7 @@ s32 main (s32 argc, cstrarr argv) {
     error = pcre2_regexec((const regex*)exprp, (const cstr)src2, (size_t)1, &matches, 0);
     if (error) {
         errlen = pcre2_regerror(error, (const regex*)exprp, errbuf, errbuflen);
-        if (errlen > errbuflen) {
+        if (errlen > errbuflen) { //truncated by the library but don't report partial errors, so
             fprintf(stderr, "\033[31mpcre2_test\033[39m: ERROR EXCEEDS BUFFER SIZE.\n");
             failure;
         }
@@ -106,7 +106,7 @@ s32 main (s32 argc, cstrarr argv) {
     error = pcre2_regexec((const regex*)exprp, (const cstr)src3, (size_t)1, &matches, 0);
     if (error) {
         errlen = pcre2_regerror(error, (const regex*)exprp, errbuf, errbuflen);
-        if (errlen > errbuflen) {
+        if (errlen > errbuflen) { //truncated by the library but don't report partial errors, so
             fprintf(stderr, "\033[31mpcre2_test\033[39m: ERROR EXCEEDS BUFFER SIZE.\n");
             failure;
         }
