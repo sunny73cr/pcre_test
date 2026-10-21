@@ -9,7 +9,7 @@ if test "$1" == "install"; then
     F_INSTALL=1;
 fi;
 
-if test !-d ./submodules/pcre2; then
+if test ! -d ./submodules/pcre2; then
     printf "\033[31mpcre_test\033[39m: Missing submodule 'pcre2'; run ./configure first!\n">&2;
     exit 1;
 fi
@@ -17,17 +17,17 @@ fi
 printf "\033[36mpcre_test\033[39m: Building submodules/pcre2...\n";
 
 ./submodules/pcre2/configure || \
-printf "\033[31mpcre_test\033[39m: Failed to build submodule pcre2.\n">&2 && exit 1;
+printf "\033[31mpcre_test\033[39m: Failed to build submodules/pcre2.\n">&2 && exit 1;
 
 ./submodules/pcre2/make || \
-printf "\033[31mpcre_test\033[39m: Failed to build submodule pcre2.\n">&2 && exit 1;
+printf "\033[31mpcre_test\033[39m: Failed to build submodules/pcre2.\n">&2 && exit 1;
 
 ./submodules/pcre2/make install || \
-printf "\033[31mpcre_test\033[39m: Failed to build submodule pcre2. Installation might require 'root'!\n">&2 && exit 1;
+printf "\033[31mpcre_test\033[39m: Failed to build submodules/pcre2. Installation might require 'root'!\n">&2 && exit 1;
 
 printf "\033[32mpcre_test\033[39m: Built submodules/pcre2!\n";
 
-printf "\033[36mpcre_test\033[39m: Building pcre2_test...\n";
+printf "\033[36mpcre_test\033[39m: Building pcre_test...\n";
 
 # *.c   : input source files.
 # -pipe : use pipes instead of intermediate files (memory is faster than disk.)
@@ -39,11 +39,11 @@ printf "\033[36mpcre_test\033[39m: Building pcre2_test...\n";
 
 mkdir ./build;
 
-gcc ./pcre2_test.c -pipe -I/usr/local/include -L/usr/local/lib -lpcre2-posix -o ./build/pcre_test
+gcc ./pcre_test.c -pipe -I/usr/local/include -L/usr/local/lib -lpcre2-posix -o ./build/pcre_test
 
-if [ $? -ne 0 ]; then printf "\033[31mpcre_test\033[39m: Failed to build submodule pcre2. Installation might require 'root'!\n">&2; exit 1; fi;
+if [ $? -ne 0 ]; then printf "\033[31mpcre_test\033[39m: Failed to build pcre_test!\n">&2; exit 1; fi;
 
-printf "\033[32mpcre_test\033[39m: Built pcre2_test!\n";
+printf "\033[32mpcre_test\033[39m: Built pcre_test!\n";
 
 if test $F_INSTALL -eq 1; then
     cp ./build/pcre_test /usr/bin/pcre_test;
