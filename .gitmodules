@@ -1,0 +1,4 @@
+[submodule "submodules/pcre2"]
+	path = submodules/pcre2
+	url = https://github.com/PCRE2Project/pcre2.git
+	branch = origin/release/pcre2-10.46

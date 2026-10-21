@@ -1,0 +1,16 @@
+############################
+# Dylan A @ Q4 2026
+# sunny73cr@protonmail.com
+# github.com/sunny73cr
+# linkedin.com/in/dylan-av
+#
+
+Test libpcre2-8-0 @ 10.46 for compatibility with a regular expression to match "an IPv4 address".
+
+Be sure to read the LICENCE. (eg. 'cat LICENCE', 'nano LICENCE', 'grep LICENCE'...);
+
+Be sure to read the CONTRIB(utors credits). (eg. 'cat CONTRIB', 'nano CONTRIB', 'grep CONTRIB'...);
+
+run ./configure
+run ./make [install]
+run ./build/pcre_test OR if ./make install; run ./usr/bin/pcre_test
