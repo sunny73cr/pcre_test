@@ -25,7 +25,7 @@ The following shell script best illustrates my problem:
 ```sh
     PATH_TEST="../dir/dir/dir/dir/@#$%^&*()-_=+\\|;:'\",<.>/?/";
     echo "$PATH_TEST" | \
-    grep -o --color=always "^\.\?\.\?/\([a-zA-Z0-9@#$%^&*()_=+\|;:'\",<>/?-]\+\)\+/\?$";
+    grep -o --color=always "^\.\?\.\?\(/[a-zA-Z0-9@#$%^&*()_=+\|;:'\",<>/?-]\+\)\+/\?$";
 ```
 
 The output should be equal to PATH_TEST. (at least, on Debian 13) It is not.
