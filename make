@@ -6,10 +6,8 @@ if test "$1" == "clean"; then
     rm -rf ./build;
     if test $? -ne 0; then printf "\033[31mpcre_test\033[39m: Failed to clean pcre_test...\n">&2; exit 1; fi;
 
-    if test -d ./submodules/pcre2; then
-        make -C ./submodules/pcre2/ clean;
-        if test $? -ne 0; then printf "\033[31mpcre_test\033[39m: Failed to clean submodules/pcre2...\n">&2; exit 1; fi;
-    fi
+    #Source the hidden script 'clean__pcre2.sh' in the ./submodules directory.
+    . ./submodules/.clean__pcre2.sh;
 
     exit 0;
 fi;

@@ -8,12 +8,6 @@ printf "\033[36mpcre_test\033[39m: Building submodules/pcre2...\n";
 cd ./submodules/pcre2;
 if test $? -ne 0; then printf "\033[31mpcre_test\033[39m: Failed to cd into submodules/pcre2...\n">&2; exit 1; fi;
 
-./autogen.sh;
-if test $? -ne 0; then printf "\033[31mpcre_test\033[39m: Failed to run 'autogen.sh' in submodules/pcre2, do you have the package 'libtool'?...\n">&2; exit 1; fi;
-
-./configure;
-if test $? -ne 0; then printf "\033[31mpcre_test\033[39m: Failed to run 'configure' in submodules/pcre2...\n">&2; exit 1; fi;
-
 if test "$1" == "install"; then
     make install;
     if test $? -ne 0; then printf "\033[31mpcre_test\033[39m: Failed to build submodules/pcre2... installation might require root!\n">&2; exit 1; fi;

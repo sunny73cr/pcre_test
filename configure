@@ -1,5 +1,6 @@
 #!/bin/bash
 
-git submodule update --checkout submodules/pcre2;
+#Source the hidden script 'configure__pcre2.sh' in the ./submodules directory.
+. ./submodules/.configure__pcre2.sh;
 
 exit 0;
