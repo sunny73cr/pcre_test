@@ -19,3 +19,13 @@ I made this project because grep has not worked (for me) for quite a while now,
 as reported in Debian Bug #1106335. The failures occur with various regex
 patterns: this small test proves that the problem is not libpcre2, but
 something else.
+
+The following shell script best illustrates my problem:
+
+```sh
+    PATH_TEST="../dir/dir/dir/dir/@#$%^&*()-_=+\\|;:'\",<.>/?/";
+    echo "$PATH_TEST" | \
+    grep -o --color=always "^\.\?\.\?/\([a-zA-Z0-9@#$%^&*()_=+\|;:'\",<>/?-]\+\)\+/\?$";
+```
+
+The output should be equal to PATH_TEST. (at least, on Debian 13) It is not.
