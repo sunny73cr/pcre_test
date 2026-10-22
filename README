@@ -28,4 +28,8 @@ The following shell script best illustrates my problem:
     grep -o --color=always "^\.\?\.\?\(/[a-zA-Z0-9@#$%^&*()_=+\|;:'\",<>/?-]\+\)\+/\?$";
 ```
 
-The output should be equal to PATH_TEST. (at least, on Debian 13) It is not.
+I made bug 1106335 claiming that this regex should not match.
+
+I found my error! grep fails horribly since the - character in the character-
+set part of the regex is not the last character in the set. If it is moved
+to the end, it works as expected.
