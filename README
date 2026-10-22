@@ -33,3 +33,8 @@ I made bug 1106335 claiming that this regex should not match.
 I found my error! grep fails horribly since the - character in the character-
 set part of the regex is not the last character in the set. If it is moved
 to the end, it works as expected.
+
+--------
+
+As for IPv4 and Port regex, I was using Basic Regular Expressions,
+which do not support the | pipe 'alternative' control character.
